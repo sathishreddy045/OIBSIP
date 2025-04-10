@@ -1,0 +1,61 @@
+/* Basic styling for calculator layout */
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #EECAD5;
+    font-family: Arial, sans-serif;
+}
+#calculator {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #FFEFEF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+#display {
+    height: 60px;
+    padding: 10px;
+    font-size: 24px;
+    background-color: #FFF7F1;
+    color: black;
+    text-align: right;
+    overflow: hidden;
+}
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+}
+button {
+    height: 60px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+.operator {
+    background-color: #f0ad4e;
+    color: white;
+}
+.equals {
+    background-color: #5cb85c;
+    color: white;
+    grid-column: span 1;
+}
+.clear {
+    background-color: #d9534f;
+    color: white;
+}
+.number, .decimal {
+    background-color: #fff;
+    color: #333;
+}
+button:active {
+    opacity: 0.7;
+}
