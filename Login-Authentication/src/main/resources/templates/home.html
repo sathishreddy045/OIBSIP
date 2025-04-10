@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Sathish Global Tech Company Home Page</title>
+    <link rel="stylesheet" th:href="@{/css/styles2.css}" />
+</head>
+<body>
+
+<h2>Sathish Global Tech Home Page</h2>
+<hr>
+<p>
+    Welcome to the Sathish Global Tech Home Page!
+</p>
+
+<hr>
+<p>
+    User: <span sec:authentication="principal.username"></span><br><br>
+    Role: <span sec:authentication="principal.authorities"></span>
+</p>
+<hr>
+<div sec:authorize="hasRole('MANAGER')">
+    <p>
+        <a th:href="@{/leaders}">Leadership Meeting</a>
+        (Only for Manager peeps)
+    </p>
+</div>
+
+<!-- Add a link to point to /systems ... this is for the admins -->
+<div sec:authorize="hasRole('ADMIN')">
+<p>
+    <a th:href="@{/systems}">IT Systems Meeting</a>
+    (Only for Admin peeps)
+</p>
+</div>
+
+<hr>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" class="logout-btn"/>
+</form>
+
+</body>
+</html>
